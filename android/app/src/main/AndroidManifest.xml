@@ -2,8 +2,10 @@
     package="com.example.flutter_study">
    <application
         android:label="flutter_study"
-        android:icon="@mipmap/ic_launcher">
-        <activity
+        android:icon="@mipmap/ic_launcher"
+       android:usesCleartextTraffic="true">
+       <!--http protoCall Use -->
+       <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
