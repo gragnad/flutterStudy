@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_study/mainUI/login/DashboardScreen.dart';
-import 'package:flutter_study/mainUI/login/Login_Screen.dart';
-import 'package:flutter_study/mainUI/login/Transition_route_observer.dart';
+import 'package:flutter/material.dart';
+import 'dashboard_screen.dart';
+import 'login_screen.dart';
+import 'transition_route_observer.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        systemNavigationBarColor:
+    SystemUiOverlayStyle(
+      systemNavigationBarColor:
           SystemUiOverlayStyle.dark.systemNavigationBarColor,
-      ),
+    ),
   );
   runApp(MyApp());
 }
@@ -17,37 +17,24 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp (
-      title: '전통시장 시장 관리자',
-      theme: ThemeData(//Theme 설정
-        // brightness: Brightness.light,
-        // backgroundColor: Colors.white,
-        primarySwatch: MaterialColor(0xffffffff, {
-          50: Color(0xaaffffff),
-          100: Color(0xbbffffff),
-          200: Color(0xccffffff),
-          300: Color(0xddffffff),
-          400: Color(0xeeffffff),
-          500: Color(0xffffffff),
-          600: Color(0xffffffff),
-          700: Color(0xffffffff),
-          800: Color(0xffffffff),
-          900: Color(0xffffffff),
-        }),
-        // scaffoldBackgroundColor: const Color(0xffffffff),
-        // accentColor: Colors.white,
-        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.orange),//텍스트 선택 테마
-        //fontFamily: 'SourceSansPro'
+    return MaterialApp(
+      title: 'Login Demo',
+      theme: ThemeData(
+        // brightness: Brightness.dark,
+        primarySwatch: Colors.deepPurple,
+        accentColor: Colors.orange,
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.orange),
+        // fontFamily: 'SourceSansPro',
         textTheme: TextTheme(
           headline3: TextStyle(
-            fontFamily: 'OpnSans',
+            fontFamily: 'OpenSans',
             fontSize: 45.0,
-            fontWeight: FontWeight.w900,
-            color: Color.fromARGB(255, 22, 22, 255),
+            // fontWeight: FontWeight.w400,
+            color: Colors.orange,
           ),
           button: TextStyle(
-            //OpenSans is similar to NotoSans but the uppercases look a bit better IMO
-            fontFamily: 'OpenSans'
+            // OpenSans is similar to NotoSans but the uppercases look a bit better IMO
+            fontFamily: 'OpenSans',
           ),
           caption: TextStyle(
             fontFamily: 'NotoSans',
@@ -69,20 +56,11 @@ class MyApp extends StatelessWidget {
       ),
       home: LoginScreen(),
       navigatorObservers: [TransitionRouteObserver()],
-      //페이지 이동 등록(Router)
       initialRoute: LoginScreen.routeName,
-        routes: {
-          LoginScreen.routeName: (context) => LoginScreen(),
-          DashboardScreen.routeName: (context) => DashboardScreen(),
-        },
+      routes: {
+        LoginScreen.routeName: (context) => LoginScreen(),
+        DashboardScreen.routeName: (context) => DashboardScreen(),
+      },
     );
   }
 }
-
-
-
-
-
-
-
-
